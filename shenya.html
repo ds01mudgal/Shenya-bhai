@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jio - New Year Free Recharge</title>
+    <style>
+        :root { --jio-blue: #0a2885; --jio-light: #1538a6; }
+        body { font-family: 'JioType', Arial, sans-serif; background-color: #f5f5f5; margin: 0; padding: 0; }
+        .header { background: var(--jio-blue); color: white; padding: 15px; text-align: center; font-weight: bold; font-size: 22px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .banner { background: white; margin: 10px; border-radius: 10px; padding: 15px; border-left: 5px solid #ffcc00; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .offer-text { color: #d32f2f; font-weight: bold; font-size: 18px; }
+        .card { background: white; margin: 15px; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        .btn { background: var(--jio-blue); color: white; width: 100%; padding: 15px; border: none; border-radius: 30px; font-size: 18px; font-weight: bold; cursor: pointer; }
+        .btn:hover { background: var(--jio-light); }
+        #loading, #prank-result { display: none; text-align: center; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid var(--jio-blue); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .roast-msg { background: #fff0f0; border: 2px dashed #d32f2f; padding: 20px; border-radius: 10px; color: #333; }
+        .shunya-bold { color: #d63031; font-size: 24px; font-weight: 900; }
+    </style>
+</head>
+<body>
+
+<div class="header">Jio Digital Life</div>
+
+<div id="main-ui">
+    <div class="banner">
+        <span class="offer-text">🔥 EXCLUSIVE OFFER 🔥</span>
+        <p><b>Shenya Bhai</b> ki nayi Job lagne ki khushi mein sabhi doston ke liye <b>₹749 (90 Days)</b> ka recharge bilkul muft!</p>
+    </div>
+
+    <div class="card">
+        <h3>Recharge Your Number</h3>
+        <input type="number" id="phone" placeholder="Enter Mobile Number">
+        <select>
+            <option>Select Operator</option>
+            <option>Jio</option>
+            <option>Airtel</option>
+            <option>Vi (Vodafone Idea)</option>
+        </select>
+        <button class="btn" onclick="startRecharge()">RECHARGE NOW</button>
+    </div>
+
+    <div style="text-align: center; color: #666; font-size: 12px;">
+        *Offer valid for Shenya's friends only.
+    </div>
+</div>
+
+<div id="loading" class="card">
+    <div class="loader"></div>
+    <h3 id="load-text">Verifying number...</h3>
+    <p style="font-size: 14px; color: #666;">Connecting to Shenya's Job-Bonus Server...</p>
+</div>
+
+<div id="prank-result" class="card">
+    <div class="roast-msg">
+        <h1 style="font-size: 50px;">🤣 OYE! 🤣</h1>
+        <p class="shunya-bold">Shenya Bhai bol rahe hain:</p>
+        <p style="font-size: 20px; font-weight: bold; color: #2d3436;">
+            "Abe bhadua... phle paisa to kma lene do, dhandha manda chal rha hai abhi!"
+        </p>
+        <hr>
+        <p style="font-size: 18px;">
+            Party kya... tum g*** v le lena, <br>par pehle mujhe kamaney toh do! 😂
+        </p>
+        <p style="margin-top: 20px;"><b>Happy New Year, Saalo! 🥳</b></p>
+    </div>
+    <button class="btn" style="margin-top: 20px;" onclick="location.reload()">Agla Bakra Dhundo</button>
+</div>
+
+<script>
+    function startRecharge() {
+        let num = document.getElementById('phone').value;
+        if(num.length < 10) { alert("Sahi number daal bhai, tabhi toh party milegi!"); return; }
+        
+        document.getElementById('main-ui').style.display = 'none';
+        document.getElementById('loading').style.display = 'block';
+        
+        let text = document.getElementById('load-text');
+        setTimeout(() => { text.innerText = "Accessing Shenya's Wallet..."; }, 1500);
+        setTimeout(() => { text.innerText = "Deducting ₹749..."; }, 3000);
+        setTimeout(() => { 
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('prank-result').style.display = 'block';
+        }, 5000);
+    }
+</script>
+
+</body>
+</html>
+
